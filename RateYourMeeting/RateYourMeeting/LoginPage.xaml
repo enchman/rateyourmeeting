@@ -7,12 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="500">
     <Grid>
-        <Label x:Name="labelTitle" Content="Login" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="21.333"/>
+        <Label x:Name="labelTitle" Content="Login" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="21"/>
         <Label x:Name="labelUsername" Content="Username" HorizontalAlignment="Left" Margin="96,100,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="boxUsername" HorizontalAlignment="Left" Height="23" Margin="164,103,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="200"/>
         <Label x:Name="labelPassword" Content="Password" HorizontalAlignment="Left" Margin="96,130,0,0" VerticalAlignment="Top"/>
         <PasswordBox x:Name="boxPassword" HorizontalAlignment="Left" Height="23" Margin="164,133,0,0"  VerticalAlignment="Top" Width="200"/>
         <Button x:Name="buttonLogin" Content="Login" HorizontalAlignment="Center" Margin="0,180,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="buttonLogin_Click"/>
+        <Button x:Name="buttonSignup" Content="Sign up"  HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" BorderBrush="{x:Null}" Click="buttonSignup_Click"/>
 
     </Grid>
 </UserControl>

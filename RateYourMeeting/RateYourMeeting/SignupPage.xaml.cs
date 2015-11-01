@@ -24,5 +24,10 @@ namespace RateYourMeeting
         {
             InitializeComponent();
         }
+
+        private void buttonSignup_Click(object sender, RoutedEventArgs e)
+        {
+            User data = new User();
+        }
     }
 }
