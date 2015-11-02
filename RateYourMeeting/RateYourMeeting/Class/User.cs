@@ -12,9 +12,10 @@ namespace RateYourMeeting
         public int Id = 0;
         public string Username;
         public string Password;
-        public string Repassword;
         public string Firstname;
         public string Lastname;
+        public Status Type;
+        public enum Status { Customer, Employee}
         public DateTime Register = DateTime.Now;
         private string PassText;
 
@@ -23,7 +24,7 @@ namespace RateYourMeeting
 
         }
 
-        public User(string username, string password, string repass, string firstname, string lastname)
+        public User(string username, string password, string firstname, string lastname)
         {
             
         }

@@ -28,6 +28,77 @@ namespace RateYourMeeting
         private void buttonSignup_Click(object sender, RoutedEventArgs e)
         {
             User data = new User();
+            bool[] status = {false, false, false, false};
+
+            if (boxUsername.Text.Length > 0)
+            {
+                data.Username = boxUsername.Text;
+                labelUsername.Foreground = Brushes.Black;
+                status[0] = true;
+            }
+            else
+            {
+                labelUsername.Foreground = Brushes.OrangeRed;
+                status[0] = false;
+            }
+
+            if (boxPassword.Password.Length > 0 && boxPassword.Password == boxRepassword.Password)
+            {
+                data.Password = BaseControl.Engine.BuildPassword(boxPassword.Password);
+                labelPassword.Foreground = Brushes.Black;
+                labelRepassword.Foreground = Brushes.Black;
+                status[1] = true;
+            }
+            else
+            {
+                labelPassword.Foreground = Brushes.OrangeRed;
+                labelRepassword.Foreground = Brushes.OrangeRed;
+                status[1] = false;
+            }
+
+            if (boxFirstname.Text.Length > 1)
+            {
+                data.Firstname = boxFirstname.Text;
+                labelFirstname.Foreground = Brushes.Black;
+                status[2] = true;
+            }
+            else
+            {
+                labelFirstname.Foreground = Brushes.OrangeRed;
+                status[2] = false;
+            }
+
+            if (boxLastname.Text.Length > 1)
+            {
+                data.Lastname = boxLastname.Text;
+                labelLastname.Foreground = Brushes.Black;
+                status[3] = true;
+            }
+            else
+            {
+                labelLastname.Foreground = Brushes.OrangeRed;
+                status[3] = false;
+            }
+
+            if(radioCustomer.IsChecked == true)
+            {
+                data.Type = User.Status.Customer;
+            }
+            else
+            {
+                data.Type = User.Status.Customer;
+            }
+
+            // Final check before process user register
+            if(status.All(x => x == true))
+            {
+                // Do register
+            }
+        }
+
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            PageSwitch.Backward();
         }
     }
 }

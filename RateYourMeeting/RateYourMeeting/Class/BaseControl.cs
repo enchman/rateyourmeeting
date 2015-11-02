@@ -8,6 +8,6 @@ namespace RateYourMeeting
 {
     class BaseControl
     {
-
+        public static Login Engine = new Login();
     }
 }

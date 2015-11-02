@@ -35,3 +35,7 @@ C:\Users\Sam\Documents\GitHub\eal\rateyourmeeting\RateYourMeeting\RateYourMeetin
 C:\Users\Sam\Documents\GitHub\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\RateYourMeeting.g.resources
 C:\Users\Sam\Documents\GitHub\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\RateYourMeeting.Properties.Resources.resources
 C:\Users\Sam\Documents\GitHub\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\RateYourMeeting.csproj.GenerateResource.Cache
+C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\SignupPage.g.cs
+C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\UserPage.g.cs
+C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\SignupPage.baml
+C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\UserPage.baml

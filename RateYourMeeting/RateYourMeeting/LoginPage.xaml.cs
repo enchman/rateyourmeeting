@@ -29,20 +29,20 @@ namespace RateYourMeeting
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            Login log = new Login();
-            string code = log.BuildPassword(boxUsername.Text);
+            //Login log = new Login();
+            //string code = log.BuildPassword(boxUsername.Text);
 
-            labelResult.Content = code;
+            //labelResult.Content = code;
 
-            bool checkPass = log.ComparePassword(boxPassword.Password, code);
-            if (checkPass)
-            {
-                labelTitle.Content = "Matched";
-            }
-            else
-            {
-                labelTitle.Content = "Not Match";
-            }
+            //bool checkPass = log.ComparePassword(boxPassword.Password, code);
+            //if (checkPass)
+            //{
+            //    labelTitle.Content = "Matched";
+            //}
+            //else
+            //{
+            //    labelTitle.Content = "Not Match";
+            //}
         }
 
         private void buttonSignup_Click(object sender, RoutedEventArgs e)

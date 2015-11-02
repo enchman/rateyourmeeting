@@ -31,12 +31,13 @@
         <Canvas Width="400" Height="50" VerticalAlignment="Top" Margin="43,325,57,0">
             <Label x:Name="labelStatus" Content="Status" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="10" Canvas.Left="68" Canvas.Top="10" Width="38"/>
             <StackPanel Width="192" Canvas.Left="134" Canvas.Top="16" Orientation="Horizontal">
-                <RadioButton x:Name="radioCustomer" GroupName="UserType" Content="Customer" Margin="0,0,20,0"/>
+                <RadioButton x:Name="radioCustomer" GroupName="UserType" Content="Customer" Margin="0,0,20,0" IsChecked="True" />
                 <RadioButton x:Name="radioWorker" GroupName="UserType" Content="Employee"/>
             </StackPanel>
         </Canvas>
         <Canvas Width="400" Height="50" VerticalAlignment="Top" Margin="43,375,57,0">
             <Button x:Name="buttonSignup" Content="Sign up" Canvas.Left="110" Canvas.Top="14" Width="74" Click="buttonSignup_Click"/>
+            <Button x:Name="buttonCancel" Content="Cancel" Canvas.Left="206" Canvas.Top="14" Width="74" Click="buttonCancel_Click"/>
         </Canvas>
         
     </Grid>
