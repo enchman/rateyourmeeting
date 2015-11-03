@@ -43,3 +43,7 @@ C:\Users\Sam\Documents\GitHub\eal\rateyourmeeting\RateYourMeeting\RateYourMeetin
 C:\Users\Sam\Documents\GitHub\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
 C:\Users\Sam\Documents\GitHub\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\TestPage.g.cs
 C:\Users\Sam\Documents\GitHub\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\TestPage.baml
+C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\TestPage.g.cs
+C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\TestPage.baml

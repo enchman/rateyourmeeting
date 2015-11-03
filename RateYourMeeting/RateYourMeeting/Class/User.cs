@@ -126,7 +126,6 @@ namespace RateYourMeeting
                 }
                 else
                 {
-                    throw new Exception(result["password"].ToString());
                     return false;
                 }
             }
