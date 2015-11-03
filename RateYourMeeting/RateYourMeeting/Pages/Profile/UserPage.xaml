@@ -8,7 +8,10 @@
              d:DesignHeight="500" d:DesignWidth="500">
     <Grid>
         <Label x:Name="labelTitle" Content="Profile" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="21"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Center" Margin="0,111,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="buttonWaiting" Content="Waiting list" HorizontalAlignment="Center" Margin="0,90,0,0" Padding="0,5" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="buttonMeeting" Content="Meeting list" HorizontalAlignment="Center" Margin="0,120,0,0" Padding="0,5" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button_Copy1" Content="Request a meeting" HorizontalAlignment="Center" Margin="190,150,190,0" Padding="0,5" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button_Copy2" Content="Meeting list" HorizontalAlignment="Center" Margin="190,180,190,0" Padding="0,5" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </UserControl>
