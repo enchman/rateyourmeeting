@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace RateYourMeeting
 {
-    class BaseControl
+    class MainControl
     {
-        public static Login Engine = new Login();
+        // User session
+        public static User Session;
+
     }
 }

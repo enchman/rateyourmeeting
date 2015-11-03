@@ -30,7 +30,7 @@ namespace RateYourMeeting
             User data = new User();
             bool[] status = {false, false, false, false};
 
-            if (boxUsername.Text.Length > 0)
+            if (boxUsername.Text.Length > 2)
             {
                 data.Username = boxUsername.Text;
                 labelUsername.Foreground = Brushes.Black;
@@ -44,7 +44,7 @@ namespace RateYourMeeting
 
             if (boxPassword.Password.Length > 0 && boxPassword.Password == boxRepassword.Password)
             {
-                data.Password = BaseControl.Engine.BuildPassword(boxPassword.Password);
+                data.Password = boxPassword.Password;
                 labelPassword.Foreground = Brushes.Black;
                 labelRepassword.Foreground = Brushes.Black;
                 status[1] = true;
@@ -86,13 +86,22 @@ namespace RateYourMeeting
             }
             else
             {
-                data.Type = User.Status.Customer;
+                data.Type = User.Status.Employee;
             }
 
             // Final check before process user register
             if(status.All(x => x == true))
             {
-                // Do register
+                // Check if user is already exist
+                if(data.CreateUser())
+                {
+                    labelUsername.Foreground = Brushes.Black;
+                    PageSwitch.Forward(new LoginPage(boxUsername.Text));
+                }
+                else
+                {
+                    labelUsername.Foreground = Brushes.OrangeRed;
+                }
             }
         }
 

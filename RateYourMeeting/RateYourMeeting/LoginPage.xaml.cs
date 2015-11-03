@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace RateYourMeeting
 {
@@ -23,31 +24,88 @@ namespace RateYourMeeting
         public LoginPage()
         {
             InitializeComponent();
-
-            
+            if(MainControl.Session != null)
+            {
+                PageSwitch.Forward(new UserPage());
+            }
+        }
+        public LoginPage(string username)
+        {
+            InitializeComponent();
+            this.boxUsername.Text = username;
+        }
+        public LoginPage(string username, string password)
+        {
+            InitializeComponent();
+            this.boxUsername.Text = username;
+            this.boxPassword.Password = password;
         }
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            //Login log = new Login();
-            //string code = log.BuildPassword(boxUsername.Text);
+            User data = new User();
 
-            //labelResult.Content = code;
+            if (data.Login(this.boxUsername.Text, this.boxPassword.Password))
+            {
+                MainControl.Session = data;
+                SolidColorBrush color = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                labelUsername.Foreground = color;
+                labelPassword.Foreground = color;
+                PageSwitch.Forward(new UserPage());
+            }
+            else
+            {
+                SolidColorBrush color = (SolidColorBrush)(new BrushConverter().ConvertFrom("#EE5555"));
+                labelUsername.Foreground = color;
+                labelPassword.Foreground = color;
+            }
 
-            //bool checkPass = log.ComparePassword(boxPassword.Password, code);
-            //if (checkPass)
+
+            //Dictionary<string, object> param = new Dictionary<string, object>();
+            //param.Add("username", this.boxUsername.Text);
+            //Database.Query("CALL getUser(@username)", param);
+            //MySqlDataReader data = Database.Data();
+
+            //// Initiating Sql data reading
+            //if(data.Read())
             //{
-            //    labelTitle.Content = "Matched";
+            //    for(int i = 0; i < data.FieldCount; i++)
+            //    {
+
+            //    }
             //}
             //else
             //{
-            //    labelTitle.Content = "Not Match";
+            //    labelTitle.Content = "NULL";
             //}
+
+            //data.Close();
         }
 
         private void buttonSignup_Click(object sender, RoutedEventArgs e)
         {
             PageSwitch.Forward(new SignupPage());
+        }
+
+        private void box_KeyUp(object sender, KeyEventArgs e)
+        {
+            boxFilter();
+        }
+
+        /// <summary>
+        /// TextBox filter
+        /// Prevent Client to login the fields are empty
+        /// </summary>
+        private void boxFilter()
+        {
+            if(this.boxUsername.Text.Length > 2 && this.boxPassword.Password.Length > 0)
+            {
+                this.buttonLogin.IsEnabled = true;
+            }
+            else
+            {
+                this.buttonLogin.IsEnabled = false;
+            }
         }
     }
 }

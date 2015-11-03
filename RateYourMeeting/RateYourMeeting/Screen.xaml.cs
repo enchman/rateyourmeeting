@@ -17,12 +17,14 @@ namespace RateYourMeeting
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
+    /// Main Initialization
     /// </summary>
     public partial class Screen : Window
     {
         public Screen()
         {
             InitializeComponent();
+
             PageSwitch.CurrentPage = this;
             PageSwitch.Forward(new LoginPage());
         }
