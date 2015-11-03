@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\App.xaml
-6354425011
+6-1015807625
 
-221082468709
+22577053120
 161494825679
-Pages\LoginPage.xaml;RequestMeetingPage.xaml;Screen.xaml;Pages\SignupPage.xaml;Pages\TestPage.xaml;Pages\Profile\UserPage.xaml;
+Pages\LoginPage.xaml;Pages\Profile\RequestMeetingPage.xaml;Screen.xaml;Pages\SignupPage.xaml;Pages\TestPage.xaml;Pages\Profile\UserPage.xaml;
 
-False
+True
 

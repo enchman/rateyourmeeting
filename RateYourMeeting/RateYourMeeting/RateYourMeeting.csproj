@@ -67,17 +67,21 @@
     <Compile Include="Class\Meeting.cs" />
     <Compile Include="Class\Review.cs" />
     <Compile Include="Class\User.cs" />
-    <Compile Include="SignupPage.xaml.cs">
+    <Compile Include="Pages\SignupPage.xaml.cs">
       <DependentUpon>SignupPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestPage.xaml.cs">
+    <Compile Include="Pages\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserPage.xaml.cs">
+    <Compile Include="Pages\Profile\UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Waiting.cs" />
-    <Page Include="LoginPage.xaml">
+    <Compile Include="Class\Waiting.cs" />
+    <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Profile\RequestMeetingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -90,23 +94,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Class\Database.cs" />
-    <Compile Include="LoginPage.xaml.cs">
+    <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\PageSwitch.cs" />
+    <Compile Include="Pages\Profile\RequestMeetingPage.xaml.cs">
+      <DependentUpon>RequestMeetingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screen.xaml.cs">
       <DependentUpon>Screen.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SignupPage.xaml">
+    <Page Include="Pages\SignupPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TestPage.xaml">
+    <Page Include="Pages\TestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserPage.xaml">
+    <Page Include="Pages\Profile\UserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
