@@ -11,6 +11,7 @@ namespace RateYourMeeting
     {
         private MySqlConnection DB;
         private MySqlDataReader Data;
+        public int Rows = 0;
 
         public Database(string query)
         {
@@ -40,21 +41,7 @@ namespace RateYourMeeting
         /// Success Query
         /// Cannot use Fetch after this...
         /// </summary>
-        public bool Success
-        {
-            get
-            {
-                if(Data != null && Data.Read())
-                {
-                    Data.Close();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+        public bool Success{ get; set; }
 
         /// <summary>
         /// Fetch 2d object array
@@ -154,10 +141,12 @@ namespace RateYourMeeting
                 com.CommandText = sql;
                 com.Prepare();
                 Data = com.ExecuteReader();
+                com.ExecuteNonQuery();
+                Success = true;
             }
-            catch (Exception)
+            catch
             {
-                // SQL Error
+                Success = false;
             }
         }
 
@@ -181,10 +170,11 @@ namespace RateYourMeeting
                 }
                 com.Prepare();
                 Data = com.ExecuteReader();
+                Success = true;
             }
-            catch(Exception)
+            catch
             {
-                // SQL Error
+                Success = false;
             }
         }
 

@@ -24,5 +24,21 @@ namespace RateYourMeeting
         {
             InitializeComponent();
         }
+
+        private void LoadMeeting()
+        {
+            MainControl.SyncMeetingList();
+
+            List<Meeting> meetings =MainControl.GetMeetingList();
+            listBoxMeeting.Items.Clear();
+
+            for (int i = 0; i < meetings.Count; i++)
+            {
+                Meeting data = meetings.ElementAt(i);
+                ListBoxItem item = new ListBoxItem();
+                item.Content = String.Format("{0} - {1}", data.MeetDate.ToString("dd-MM-yyyy HH:mm"), data.Fullname); ;
+                listBoxMeeting.Items.Add(item);
+            }
+        }
     }
 }

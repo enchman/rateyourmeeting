@@ -129,11 +129,10 @@ namespace RateYourMeeting
                     return false;
                 }
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return false;
             }
-
         }
 
         public void Logout()
@@ -156,8 +155,10 @@ namespace RateYourMeeting
                     param.Add("firstname", this.Firstname);
                     param.Add("lastname", this.Lastname);
 
-                    new Database("CALL `addEmployee`(@username, @password, @firstname, @lastname)", param).Done();
-                    return true;
+                    Database DB = new Database("CALL `addEmployee`(@username, @password, @firstname, @lastname)", param);
+                    bool result = DB.Success;
+                    DB.Done();
+                    return result;
                 }
                 else
                 {
@@ -167,8 +168,10 @@ namespace RateYourMeeting
                     param.Add("firstname", this.Firstname);
                     param.Add("lastname", this.Lastname);
 
-                    new Database("CALL `addCustomer`(@username, @password, @firstname, @lastname)", param).Done();
-                    return true;
+                    Database DB = new Database("CALL `addCustomer`(@username, @password, @firstname, @lastname)", param);
+                    bool result = DB.Success;
+                    DB.Done();
+                    return result;
                 }
             }
             else

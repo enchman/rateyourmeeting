@@ -92,7 +92,7 @@ namespace RateYourMeeting
             // Final check before process user register
             if(status.All(x => x == true))
             {
-                // Check if user is already exist
+                // Check if user is already exist & do create user process
                 if(data.CreateUser())
                 {
                     labelUsername.Foreground = Brushes.Black;

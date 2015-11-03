@@ -41,6 +41,12 @@ namespace RateYourMeeting
             this.boxPassword.Password = password;
         }
 
+        /// <summary>
+        /// Do Login process
+        /// when event is trigged
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
             User data = new User();
@@ -59,27 +65,6 @@ namespace RateYourMeeting
                 labelUsername.Foreground = color;
                 labelPassword.Foreground = color;
             }
-
-
-            //Dictionary<string, object> param = new Dictionary<string, object>();
-            //param.Add("username", this.boxUsername.Text);
-            //Database.Query("CALL getUser(@username)", param);
-            //MySqlDataReader data = Database.Data();
-
-            //// Initiating Sql data reading
-            //if(data.Read())
-            //{
-            //    for(int i = 0; i < data.FieldCount; i++)
-            //    {
-
-            //    }
-            //}
-            //else
-            //{
-            //    labelTitle.Content = "NULL";
-            //}
-
-            //data.Close();
         }
 
         private void buttonSignup_Click(object sender, RoutedEventArgs e)
