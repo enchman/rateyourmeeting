@@ -425,7 +425,7 @@ namespace RateYourMeeting
     {
         protected static string Host = "localhost";
         protected static string Username = "meeter";
-        protected static string Password = "1234567890";
+        protected static string Password = "F6vDzc3rYCaG8tPr";
         protected static string Database = "rateyourmeeting";
         protected static string Charset = "utf8";
 
