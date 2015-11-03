@@ -202,236 +202,25 @@ namespace RateYourMeeting
         }
     }
 
-    #region Old Database
-    //class Database: MySqlInfo
-    //{
-    //    // Database Connection
-    //    private static MySqlConnection DB;
-    //    // Database Result
-    //    private static MySqlDataReader Result;
-    //    // Number of results
-    //    public static int Num = 0;
-
-    //    /// <summary>
-    //    /// Database Connection
-    //    /// </summary>
-    //    public static void Connect()
-    //    {
-    //        try
-    //        {
-    //            MySqlConnection connection = new MySqlConnection(MySqlInfo.Dns());
-    //            connection.Open();
-    //            DB = connection;
-    //        }
-    //        catch (MySqlException)
-    //        {
-    //            // Error
-    //        }
-    //    }
-
-    //    public static void Reconnect()
-    //    {
-    //        try
-    //        {
-    //            if (DB == null || DB.State == System.Data.ConnectionState.Closed)
-    //            {
-    //                MySqlConnection connection = new MySqlConnection(MySqlInfo.Dns());
-    //                connection.Open();
-    //                DB = connection;
-    //            }
-    //        }
-    //        catch (MySqlException)
-    //        {
-    //            // Error
-    //        }
-    //    }
-
-    //    /// <summary>
-    //    /// Disconnect current database sconnection
-    //    /// </summary>
-    //    public static void Disconnect()
-    //    {
-    //        if(DB != null)
-    //        {
-    //            DB.Close();
-    //        }
-    //    }
-
-    //    /// <summary>
-    //    /// Database query
-    //    /// </summary>
-    //    /// <param name="sql">SQL command string</param>
-    //    public static void Query(string sql)
-    //    {
-    //        try
-    //        {
-    //            // Free result if it 's not close
-    //            Free();
-
-    //            // Prepare statement & execute query
-    //            MySqlCommand cmd = new MySqlCommand();
-    //            cmd.Connection = DB;
-    //            cmd.CommandText = sql;
-    //            cmd.Prepare();
-    //            Result = cmd.ExecuteReader();
-    //        }
-    //        catch(Exception)
-    //        {
-    //            // No connection error
-    //        }
-    //        finally
-    //        {
-    //            Reconnect();
-    //            // Free result if it 's not close
-    //            Free();
-
-    //            // Prepare statement & execute query
-    //            MySqlCommand cmd = new MySqlCommand();
-    //            cmd.Connection = DB;
-    //            cmd.CommandText = sql;
-    //            cmd.Prepare();
-    //            Result = cmd.ExecuteReader();
-    //        }
-    //    }
-
-    //    /// <summary>
-    //    /// Database query
-    //    /// </summary>
-    //    /// <param name="sql">SQL command string</param>
-    //    /// <param name="param">Bind Parameters</param>
-    //    public static void Query(string sql, Dictionary<string,object> param)
-    //    {
-    //        try
-    //        {
-
-    //            MySqlCommand cmd = new MySqlCommand();
-    //            cmd.Connection = DB;
-    //            cmd.CommandText = sql;
-    //            List<string> keys = new List<string>(param.Keys);
-    //            foreach(string key in keys)
-    //            {
-    //                cmd.Parameters.AddWithValue("@" + key, param[key]);
-    //            }
-    //            cmd.Prepare();
-    //            Result = cmd.ExecuteReader();
-
-    //        }
-    //        catch(Exception)
-    //        {
-    //            // Something when wrong...
-    //        }
-    //    }
-
-    //    public static void Free()
-    //    {
-    //        if (Result != null && !Result.IsClosed)
-    //        {
-    //            Result.Close();
-    //        }
-    //    }
-
-
-
-    //    //public static DatabaseResult[] Fetch()
-    //    //{
-    //    //    try
-    //    //    {
-    //    //        DatabaseResult[] data = new DatabaseResult[] { };
-    //    //        for(int i = 0; Result.Read(); i++)
-    //    //        {
-    //    //            for(int n = 0; n < Result.FieldCount; n++)
-    //    //            {
-    //    //                data[i].Add(Result.GetName(n), Result.GetValue(n));
-    //    //            }
-    //    //        }
-
-    //    //        Result.Close();
-    //    //        return data;
-    //    //    }
-    //    //    catch (Exception)
-    //    //    {
-    //    //        return null;
-    //    //    }
-    //    //}
-
-    //    public static MySqlDataReader Data()
-    //    {
-    //        try
-    //        {
-    //            return GetResult();
-    //        }
-    //        catch(Exception)
-    //        {
-    //            // Error
-    //            return null;
-    //        }
-    //    }
-
-    //    private static MySqlDataReader GetResult()
-    //    {
-    //        if(Result != null)
-    //        {
-    //            return Result;
-    //        }
-    //        else
-    //        {
-    //            throw new Exception("Error: There hadn't been");
-    //        }
-    //    }
-
-    //    private static MySqlConnection GetConnection(string sql)
-    //    {
-    //        if(DB != null)
-    //        {
-    //            return DB;
-    //        }
-    //        else
-    //        {
-    //            throw new Exception("Error: There is no connection yet!");
-    //        }
-    //    }
-    //}
-
-    #endregion
-
-    class DatabaseResult
-    {
-        private string[] Columns = new string[1];
-        private object[] Values;
-        private int ID = 0;
-
-        public void Add(string column, object value)
-        {
-            Columns[ID] = column;
-            Values[ID] = value;
-            ID++;
-        }
-
-        public object Result(string column)
-        {
-            int index = Array.IndexOf(Columns, column);
-            if (index != -1)
-            {
-                return Values[index];
-            }
-            else
-            {
-                return null;
-            }
-        }
-    }
-
     abstract class MySqlInfo
     {
         protected static string Host = "localhost";
         protected static string Username = "meeter";
-        protected static string Password = "F6vDzc3rYCaG8tPr";
+        protected static string Password = "1234567890";
         protected static string Database = "rateyourmeeting";
         protected static string Charset = "utf8";
+        protected static string Port = "3306";
 
         protected static string Dns()
         {
-            return String.Format("server={0};uid={1};pwd={2};database={3};charset={4}", Host, Username, Password, Database, Charset);
+            if(Port != null)
+            {
+                return String.Format("server={0};port={1};uid={2};pwd={3};database={4};charset={5}", Host, Port, Username, Password, Database, Charset);
+            }
+            else
+            {
+                return String.Format("server={0};uid={1};pwd={2};database={3};charset={4}", Host, Username, Password, Database, Charset);
+            }
         }
     }
 }

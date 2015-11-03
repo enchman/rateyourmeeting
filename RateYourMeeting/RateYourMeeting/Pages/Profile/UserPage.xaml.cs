@@ -23,22 +23,43 @@ namespace RateYourMeeting
         public UserPage()
         {
             InitializeComponent();
+            LoadItems();
+        }
+
+        private void LoadItems()
+        {
+            if (MainControl.Session.Type == User.Status.Customer)
+            {
+                tabAction.Header = "Arrange a meeting";
+            }
         }
 
         private void LoadMeeting()
         {
-            MainControl.SyncMeetingList();
+            //MainControl.SyncMeetingList();
 
-            List<Meeting> meetings =MainControl.GetMeetingList();
-            listBoxMeeting.Items.Clear();
+            //List<Meeting> meetings =MainControl.GetMeetingList();
+            //listBoxMeeting.Items.Clear();
 
-            for (int i = 0; i < meetings.Count; i++)
-            {
-                Meeting data = meetings.ElementAt(i);
-                ListBoxItem item = new ListBoxItem();
-                item.Content = String.Format("{0} - {1}", data.MeetDate.ToString("dd-MM-yyyy HH:mm"), data.Fullname); ;
-                listBoxMeeting.Items.Add(item);
-            }
+            //for (int i = 0; i < meetings.Count; i++)
+            //{
+            //    Meeting data = meetings.ElementAt(i);
+            //    ListBoxItem item = new ListBoxItem();
+            //    item.Content = String.Format("{0} - {1}", data.MeetDate.ToString("dd-MM-yyyy HH:mm"), data.Fullname); ;
+            //    listBoxMeeting.Items.Add(item);
+            //}
+        }
+
+        private void buttonLogout_Click(object sender, RoutedEventArgs e)
+        {
+            MainControl.Session = null;
+            PageSwitch.Forward(new LoginPage());
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            ViewComment com = new ViewComment();
+            com.Show();
         }
     }
 }

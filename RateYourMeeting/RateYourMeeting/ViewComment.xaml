@@ -1,0 +1,34 @@
+﻿<Window x:Class="RateYourMeeting.ViewComment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RateYourMeeting"
+        mc:Ignorable="d"
+        Title="Comment list" Height="500" Width="500">
+    <Grid>
+        <StackPanel x:Name="panelComment" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch">
+            <StackPanel MinHeight="20" Orientation="Horizontal">
+                <StackPanel Width="120"  HorizontalAlignment="Left" Orientation="Vertical">
+                    <Label Content="Navn" />
+                </StackPanel>
+                <StackPanel Width="352">
+                    <Label Content="Kommentar" />
+                </StackPanel>
+            </StackPanel>
+            <!--
+            <Border BorderBrush="#FF1986D1" BorderThickness="0,0,0,1">
+                <StackPanel MinHeight="50" Orientation="Horizontal" MouseEnter="Panel_MouseEnter" MouseLeave="Panel_MouseLeave">
+                    <StackPanel Width="100" MinHeight="50" HorizontalAlignment="Left" Orientation="Vertical">
+                        <Label Content="Admin Administrator" FontSize="8" Foreground="#FF2C71D4" />
+                        <Label Content="02-11-2015 22:44:32" FontSize="8" Foreground="#FF1C8A95"/>
+                    </StackPanel>
+                    <StackPanel Width="272" Margin="0,5">
+                        <TextBlock FontSize="8" TextWrapping="WrapWithOverflow" Text="Hello world" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>-->
+            
+        </StackPanel>
+    </Grid>
+</Window>

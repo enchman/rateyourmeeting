@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\
+C:\Users\Sam\Documents\GitHub\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\
 RateYourMeeting
 none
 false
 DEBUG;TRACE
-C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\App.xaml
-5-342348237
+C:\Users\Sam\Documents\GitHub\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\App.xaml
+81407295314
 
-171697313120
-161494825679
-LoginPage.xaml;Screen.xaml;SignupPage.xaml;TestPage.xaml;UserPage.xaml;
+20-1083552203
+16-2080147458
+ViewComment.xaml;WriteComment.xaml;Pages\LoginPage.xaml;WriteReview.xaml;Screen.xaml;Pages\SignupPage.xaml;Pages\TestPage.xaml;Pages\Profile\UserPage.xaml;
 
 False
 

@@ -67,6 +67,12 @@
     <Compile Include="Class\Meeting.cs" />
     <Compile Include="Class\Review.cs" />
     <Compile Include="Class\User.cs" />
+    <Compile Include="ViewComment.xaml.cs">
+      <DependentUpon>ViewComment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WriteComment.xaml.cs">
+      <DependentUpon>WriteComment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SignupPage.xaml.cs">
       <DependentUpon>SignupPage.xaml</DependentUpon>
     </Compile>
@@ -77,11 +83,19 @@
       <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\Waiting.cs" />
+    <Page Include="ViewComment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WriteComment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Profile\RequestMeetingPage.xaml">
+    <Page Include="WriteReview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,8 +112,8 @@
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\PageSwitch.cs" />
-    <Compile Include="Pages\Profile\RequestMeetingPage.xaml.cs">
-      <DependentUpon>RequestMeetingPage.xaml</DependentUpon>
+    <Compile Include="WriteReview.xaml.cs">
+      <DependentUpon>WriteReview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screen.xaml.cs">
       <DependentUpon>Screen.xaml</DependentUpon>

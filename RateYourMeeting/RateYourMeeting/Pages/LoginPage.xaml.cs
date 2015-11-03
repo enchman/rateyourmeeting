@@ -49,22 +49,7 @@ namespace RateYourMeeting
         /// <param name="e"></param>
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            User data = new User();
-
-            if (data.Login(this.boxUsername.Text, this.boxPassword.Password))
-            {
-                MainControl.Session = data;
-                SolidColorBrush color = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-                labelUsername.Foreground = color;
-                labelPassword.Foreground = color;
-                PageSwitch.Forward(new UserPage());
-            }
-            else
-            {
-                SolidColorBrush color = (SolidColorBrush)(new BrushConverter().ConvertFrom("#EE5555"));
-                labelUsername.Foreground = color;
-                labelPassword.Foreground = color;
-            }
+            DoLogin();
         }
 
         private void buttonSignup_Click(object sender, RoutedEventArgs e)
@@ -81,15 +66,48 @@ namespace RateYourMeeting
         /// TextBox filter
         /// Prevent Client to login the fields are empty
         /// </summary>
-        private void boxFilter()
+        private bool boxFilter()
         {
             if(this.boxUsername.Text.Length > 2 && this.boxPassword.Password.Length > 0)
             {
                 this.buttonLogin.IsEnabled = true;
+                return true;
             }
             else
             {
                 this.buttonLogin.IsEnabled = false;
+                return false;
+            }
+        }
+
+        private void boxActive_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                if (boxFilter())
+                {
+                    DoLogin();
+                }
+            }
+        }
+
+        private void DoLogin()
+        {
+            User data = new User();
+
+            if (data.Login(this.boxUsername.Text, this.boxPassword.Password))
+            {
+                MainControl.Session = data;
+                SolidColorBrush color = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                labelUsername.Foreground = color;
+                labelPassword.Foreground = color;
+                PageSwitch.Forward(new UserPage());
+            }
+            else
+            {
+                SolidColorBrush color = (SolidColorBrush)(new BrushConverter().ConvertFrom("#EE5555"));
+                labelUsername.Foreground = color;
+                labelPassword.Foreground = color;
             }
         }
     }

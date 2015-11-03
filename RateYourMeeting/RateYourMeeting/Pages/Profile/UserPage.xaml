@@ -7,11 +7,34 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="500">
     <Grid>
-        <Label x:Name="labelTitle" Content="Profile" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="21"/>
-        <Button x:Name="buttonWaiting" Content="Waiting list" HorizontalAlignment="Center" Margin="0,90,0,0" Padding="0,5" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="buttonMeeting" Content="Meeting list" HorizontalAlignment="Center" Margin="0,120,0,0" Padding="0,5" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button_Copy1" Content="Request a meeting" HorizontalAlignment="Center" Margin="190,150,190,0" Padding="0,5" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button_Copy2" Content="Meeting list" HorizontalAlignment="Center" Margin="190,180,190,0" Padding="0,5" VerticalAlignment="Top" Width="120"/>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Center" Margin="0,10,0,10" VerticalAlignment="Stretch" Width="480">
+            <TabItem x:Name="tabMeeting" Header="Meeting list" Selector.IsSelected="True">
+                <Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabAction" Header="Waiting list" >
+                <Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabReview" Header="Reviews">
+                <Grid>
+                    <Button x:Name="button" Content="Show comment" HorizontalAlignment="Left" Margin="52,36,0,0" VerticalAlignment="Top" Click="button_Click" />
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabProfile" Header="Profile">
+                <Grid>
+                    <Label x:Name="labelProfile" Content="Welcome" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label x:Name="labelFullname" Content="Full name placeholder" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" FontSize="12"/>
+
+                    <Button x:Name="buttonLogout" Content="Logout" HorizontalAlignment="Right" Padding="5,1" Margin="0,10,10,0" VerticalAlignment="Top" Background="#FFFFFF" Click="buttonLogout_Click"/>
+
+
+                </Grid>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </UserControl>

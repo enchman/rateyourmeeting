@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace RateYourMeeting
 {
     /// <summary>
-    /// Interaction logic for RequestMeetingPage.xaml
+    /// Interaction logic for WriteComment.xaml
     /// </summary>
-    public partial class RequestMeetingPage : UserControl
+    public partial class WriteComment : Window
     {
-        public RequestMeetingPage()
+        public WriteComment()
         {
             InitializeComponent();
         }
