@@ -24,14 +24,95 @@ namespace RateYourMeeting
         {
             InitializeComponent();
             LoadItems();
+            LoadProfile();
+            //GetEmployees();
         }
+
+        private void GetEmployees()
+        {
+            List<User> users = User.GetEmployees();
+            
+            if(users.Count != 0)
+            {
+                foreach(User item in users)
+                {
+                    GenerateEmployeeStackPanel(item);
+                }
+            }
+        }
+
+        private void GenerateEmployeeStackPanel(User user)
+        {
+            // Parent Stackpanel
+            Border bord = new Border();
+            bord.BorderBrush = Brushes.Black;
+            bord.BorderThickness = new Thickness(0, 0, 0, 1);
+
+            // Parent Stackpanel
+            StackPanel panel = new StackPanel();
+            panel.Height = 20;
+            panel.Orientation = Orientation.Horizontal;
+            panel.MouseEnter += list_Hovering;
+            panel.MouseLeave += list_Leaving;
+
+            // 1. Child @ 1. Stackpanel
+            StackPanel p1 = new StackPanel();
+            p1.Width = 230;
+            // 2. Child @ 1. TextBlock
+            TextBlock txtName = new TextBlock();
+            txtName.HorizontalAlignment = HorizontalAlignment.Left;
+            txtName.Padding = new Thickness(15, 0, 0, 0);
+            txtName.Cursor = Cursors.Hand;
+            txtName.Text = user.Fullname;
+
+            // 1. Child @ 2. Stackpanel
+            StackPanel p2 = new StackPanel();
+            p1.Width = 230;
+            // 2. Child @ 2. TextBlock
+            TextBlock txtDate = new TextBlock();
+            txtDate.HorizontalAlignment = HorizontalAlignment.Center;
+            txtDate.Text = user.GetDate;
+
+            //  Text="1" TextAlignment="Right" Padding="0,0,10,0" 
+            StackPanel p3 = new StackPanel();
+            p1.Width = 230;
+            // 2. Child @ 2. TextBlock
+            TextBlock txtTotal = new TextBlock();
+            txtTotal.TextAlignment = TextAlignment.Right;
+            txtTotal.Padding = new Thickness(0, 0, 10, 0);
+            txtTotal.Text = user.Total.ToString();
+
+            // Attaching Elements
+            p1.Children.Add(txtName);
+            p2.Children.Add(txtDate);
+            p3.Children.Add(txtTotal);
+            panel.Children.Add(p1);
+            panel.Children.Add(p2);
+            panel.Children.Add(p3);
+            bord.Child = panel;
+            panelEmployee.Children.Add(bord);
+        }
+
+        private void GetMeetings()
+        {
+
+        }
+
+        
+
+        #region Data loader
 
         private void LoadItems()
         {
             if (MainControl.Session.Type == User.Status.Customer)
             {
                 tabAction.Header = "Arrange a meeting";
+                // Change UI
+                
             }
+            
+
+            
         }
 
         private void LoadMeeting()
@@ -50,6 +131,13 @@ namespace RateYourMeeting
             //}
         }
 
+        private void LoadProfile()
+        {
+            labelFullname.Content = MainControl.FulllName;
+        }
+        #endregion
+
+        #region User Event
         private void buttonLogout_Click(object sender, RoutedEventArgs e)
         {
             MainControl.Session = null;
@@ -61,5 +149,18 @@ namespace RateYourMeeting
             ViewComment com = new ViewComment();
             com.Show();
         }
+
+        private void list_Hovering(object sender, MouseEventArgs e)
+        {
+            StackPanel panel = sender as StackPanel;
+            panel.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B9DCFF"));
+        }
+
+        private void list_Leaving(object sender, MouseEventArgs e)
+        {
+            StackPanel panel = sender as StackPanel;
+            panel.Background = Brushes.Transparent;
+        }
+        #endregion
     }
 }

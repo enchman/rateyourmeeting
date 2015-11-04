@@ -24,21 +24,26 @@ namespace RateYourMeeting
         public LoginPage()
         {
             InitializeComponent();
+            // Check if user is already logged in
             if(MainControl.Session != null)
             {
                 PageSwitch.Forward(new UserPage());
             }
+            boxUsername.Focus();
+            
         }
         public LoginPage(string username)
         {
             InitializeComponent();
             this.boxUsername.Text = username;
+            boxPassword.Focus();
         }
         public LoginPage(string username, string password)
         {
             InitializeComponent();
             this.boxUsername.Text = username;
             this.boxPassword.Password = password;
+            boxPassword.Focus();
         }
 
         /// <summary>

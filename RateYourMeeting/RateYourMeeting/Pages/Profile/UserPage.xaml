@@ -18,8 +18,39 @@
 
                 </Grid>
             </TabItem>
+            <TabItem x:Name="tabEmployee" Header="Employees">
+                <Grid>
+                    <StackPanel x:Name="panelEmployee" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Vertical">
+                        <StackPanel Height="30" Margin="0,10,0,0" Orientation="Horizontal">
+                            <StackPanel Width="250">
+                                <Label Content="Medarbejder" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Width="130">
+                                <Label Content="Seneste anmeld" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Width="90">
+                                <Label Content="Antal anmeld" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <Border BorderBrush="Black" BorderThickness="0,0,0,1">
+                            <StackPanel Height="20" Orientation="Horizontal" MouseEnter="list_Hovering" MouseLeave="list_Leaving">
+                                <StackPanel Width="250">
+                                    <TextBlock Padding="15,0,0,0" HorizontalAlignment="Left" Text="Admin Adminstrator" Cursor="Hand"/>
+                                </StackPanel>
+                                <StackPanel Width="130">
+                                    <TextBlock HorizontalAlignment="Center" Text="30-11-2015 10:00:00" />
+                                </StackPanel>
+                                <StackPanel Width="90">
+                                    <TextBlock Text="1" TextAlignment="Right" Padding="0,0,10,0" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
             <TabItem x:Name="tabReview" Header="Reviews">
                 <Grid>
+                    
                     <Button x:Name="button" Content="Show comment" HorizontalAlignment="Left" Margin="52,36,0,0" VerticalAlignment="Top" Click="button_Click" />
 
                 </Grid>

@@ -12,8 +12,9 @@
                 <StackPanel Width="120"  HorizontalAlignment="Left" Orientation="Vertical">
                     <Label Content="Navn" />
                 </StackPanel>
-                <StackPanel Width="352">
+                <StackPanel Width="352" Orientation="Horizontal">
                     <Label Content="Kommentar" />
+                    <Button Padding="5,0" Height="20" Margin="175,0,0,0" HorizontalAlignment="Right" Content="Skriv kommentar" Background="White"></Button>
                 </StackPanel>
             </StackPanel>
             <!--

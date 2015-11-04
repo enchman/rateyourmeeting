@@ -27,6 +27,21 @@ namespace RateYourMeeting
         // Employee list
         private static List<User> UserList = new List<User>() { };
 
+        public static string FulllName
+        {
+            get
+            {
+                if(Session != null)
+                {
+                    return Session.Firstname + " " + Session.Lastname;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+
         public static List<Meeting> GetMeetingList()
         {
             return MeetlingList;
@@ -44,10 +59,6 @@ namespace RateYourMeeting
             }
         }
 
-        public static List<User> GetEmployeeList()
-        {
-            return UserList;
-        }
 
         public static List<Review> GetReviewList()
         {

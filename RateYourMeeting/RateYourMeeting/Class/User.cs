@@ -18,6 +18,40 @@ namespace RateYourMeeting
         public string Lastname;
         public Status Type;
         public enum Status { Customer, Employee}
+        // This use for recent review's date
+        public DateTime DataTime;
+        // This use for numbers of reviews
+        public int Total;
+
+        public string Fullname
+        {
+            get
+            {
+                if(Firstname != null && Lastname != null)
+                {
+                    return Firstname + " " + Lastname;
+                }
+                else
+                {
+                    return String.Empty;
+                }
+            }
+        }
+
+        public string GetDate
+        {
+            get
+            {
+                if(DataTime != null)
+                {
+                    return DataTime.ToString("dd-MM-yyyy HH:mm:ss");
+                }
+                else
+                {
+                    return "-";
+                }
+            }
+        }
 
         private static string saltWord = "ap21kdGzc6wV1L0xdaA1";
         private static byte[] saltByte;
@@ -106,8 +140,33 @@ namespace RateYourMeeting
             }
         }
 
-        #region User action
+        #region Public Utility
+        public static List<User> GetEmployees()
+        {
+            Database DB = new Database("CALL `getEmployees`()");
+            Dictionary<string, object>[] data = DB.FetchAll();
+            List<User> items = new List<User>() { };
+            for(int i = 0; i < data.Length; i++)
+            {
+                User profile = new User();
+                profile.Id = Convert.ToInt32(data[i]["id"]);
+                profile.Firstname = data[i]["firstname"].ToString();
+                profile.Lastname = data[i]["lastname"].ToString();
+                profile.Total = Convert.ToInt32(data[i]["total"]);
+                if(data[i]["wrotedate"] != null)
+                {
+                    profile.DataTime = Convert.ToDateTime(data[i]["wrotedate"]);
+                }
 
+                profile.Type = User.Status.Employee;
+                items.Add(profile);
+            }
+
+            return items;
+        }
+        #endregion
+
+        #region User action
         public bool Login(string username, string password)
         {
             try
@@ -245,7 +304,6 @@ namespace RateYourMeeting
         #endregion
 
         #region User input filter
-
         private void CheckUsername(string username)
         {
             if (username.Length >= 2 && username.Length <= 255)
