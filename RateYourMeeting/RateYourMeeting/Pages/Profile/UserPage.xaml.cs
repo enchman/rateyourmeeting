@@ -25,7 +25,7 @@ namespace RateYourMeeting
             InitializeComponent();
             LoadItems();
             LoadProfile();
-            //GetEmployees();
+            GetEmployees();
         }
 
         private void GetEmployees()
@@ -57,17 +57,18 @@ namespace RateYourMeeting
 
             // 1. Child @ 1. Stackpanel
             StackPanel p1 = new StackPanel();
-            p1.Width = 230;
+            p1.Width = 250;
             // 2. Child @ 1. TextBlock
             TextBlock txtName = new TextBlock();
             txtName.HorizontalAlignment = HorizontalAlignment.Left;
             txtName.Padding = new Thickness(15, 0, 0, 0);
             txtName.Cursor = Cursors.Hand;
             txtName.Text = user.Fullname;
+            txtName.Uid = user.Id.ToString();
 
             // 1. Child @ 2. Stackpanel
             StackPanel p2 = new StackPanel();
-            p1.Width = 230;
+            p2.Width = 130;
             // 2. Child @ 2. TextBlock
             TextBlock txtDate = new TextBlock();
             txtDate.HorizontalAlignment = HorizontalAlignment.Center;
@@ -75,7 +76,7 @@ namespace RateYourMeeting
 
             //  Text="1" TextAlignment="Right" Padding="0,0,10,0" 
             StackPanel p3 = new StackPanel();
-            p1.Width = 230;
+            p3.Width = 90;
             // 2. Child @ 2. TextBlock
             TextBlock txtTotal = new TextBlock();
             txtTotal.TextAlignment = TextAlignment.Right;
@@ -98,7 +99,11 @@ namespace RateYourMeeting
 
         }
 
-        
+
+        private void LoadEmployeeReviews()
+        {
+
+        }
 
         #region Data loader
 
@@ -161,6 +166,27 @@ namespace RateYourMeeting
             StackPanel panel = sender as StackPanel;
             panel.Background = Brushes.Transparent;
         }
+        private void Employee_Click(object sender, MouseButtonEventArgs e)
+        {
+            TextBlock text = sender as TextBlock;
+            
+        }
+
+        private void MeetingReview_Click(object sender, MouseButtonEventArgs e)
+        {
+            if(e.ClickCount == 2)
+            {
+                TextBlock text = sender as TextBlock;
+                WriteReview page = new WriteReview();
+                page.Show();
+            }
+        }
         #endregion
+
+        private void buttonViewComment_Click(object sender, RoutedEventArgs e)
+        {
+            ViewComment page = new ViewComment();
+            page.Show();
+        }
     }
 }

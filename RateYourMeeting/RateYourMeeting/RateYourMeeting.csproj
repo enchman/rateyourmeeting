@@ -67,27 +67,24 @@
     <Compile Include="Class\Meeting.cs" />
     <Compile Include="Class\Review.cs" />
     <Compile Include="Class\User.cs" />
-    <Compile Include="ViewComment.xaml.cs">
+    <Compile Include="Pages\Profile\ViewComment.xaml.cs">
       <DependentUpon>ViewComment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WriteComment.xaml.cs">
+    <Compile Include="Pages\Profile\WriteComment.xaml.cs">
       <DependentUpon>WriteComment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SignupPage.xaml.cs">
       <DependentUpon>SignupPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\TestPage.xaml.cs">
-      <DependentUpon>TestPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Profile\UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\Waiting.cs" />
-    <Page Include="ViewComment.xaml">
+    <Page Include="Pages\Profile\ViewComment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WriteComment.xaml">
+    <Page Include="Pages\Profile\WriteComment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -95,7 +92,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WriteReview.xaml">
+    <Page Include="Pages\Profile\WriteReview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,7 +109,7 @@
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\PageSwitch.cs" />
-    <Compile Include="WriteReview.xaml.cs">
+    <Compile Include="Pages\Profile\WriteReview.xaml.cs">
       <DependentUpon>WriteReview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screen.xaml.cs">
@@ -120,10 +117,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\SignupPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\TestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

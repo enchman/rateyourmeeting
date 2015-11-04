@@ -70,33 +70,6 @@ namespace RateYourMeeting
             return CommentList;
         }
 
-
-
-        public static void SyncMeetingList()
-        {
-            // Determinate resources
-            MeetlingList.Clear();
-
-            // Do SQL process
-            Dictionary<string, object> param = new Dictionary<string, object>();
-            param.Add("id", Session.Id);
-            Database DB = new Database("CALL `getCustomerMeeting` (@id)");
-
-            // Fetching data
-            Dictionary<string, object>[] data = DB.FetchAll();
-            if(data.Length > 0)
-            {
-                for(int i = 0; i < data.Length; i++)
-                {
-                    // Extract data to meeting list
-                    Meeting meet = new Meeting();
-                    meet.Id = Convert.ToInt32(data[i]["id"]);
-                    meet.Fullname = data[i]["fullname"].ToString();
-                    meet.MeetDate = Convert.ToDateTime(data[i]["meetingdate"]);
-                    MeetlingList.Add(meet);
-                }
-            }
-        }
         public static void SyncWaitingList()
         {
 

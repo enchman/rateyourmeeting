@@ -10,7 +10,45 @@
         <TabControl x:Name="tabControl" HorizontalAlignment="Center" Margin="0,10,0,10" VerticalAlignment="Stretch" Width="480">
             <TabItem x:Name="tabMeeting" Header="Meeting list" Selector.IsSelected="True">
                 <Grid>
-
+                    <StackPanel x:Name="panelMeeting" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Vertical">
+                        <StackPanel Height="30" Margin="0,10,0,0" Orientation="Horizontal">
+                            <StackPanel Width="280">
+                                <Label Content="Medarbejder" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Width="140">
+                                <Label Content="Dato" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Width="50">
+                                <Label Content="Status" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <Border BorderBrush="Black" BorderThickness="0,0,0,1">
+                            <StackPanel Height="20" Orientation="Horizontal" MouseEnter="list_Hovering" MouseLeave="list_Leaving">
+                                <StackPanel Width="280">
+                                    <TextBlock Uid="0" Padding="15,0,0,0" HorizontalAlignment="Left" Text="Admin Adminstrator" Cursor="Hand" PreviewMouseDown="MeetingReview_Click"/>
+                                </StackPanel>
+                                <StackPanel Width="140">
+                                    <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Text="04-11-2015 20:20:00" />
+                                </StackPanel>
+                                <StackPanel Width="50">
+                                    <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Text="✓" Foreground="#FF77D342"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="0,0,0,1">
+                            <StackPanel Height="20" Orientation="Horizontal" MouseEnter="list_Hovering" MouseLeave="list_Leaving">
+                                <StackPanel Width="280">
+                                    <TextBlock Uid="0" Padding="15,0,0,0" HorizontalAlignment="Left" Text="Admin Adminstrator" Cursor="Hand" PreviewMouseDown="MeetingReview_Click"/>
+                                </StackPanel>
+                                <StackPanel Width="140">
+                                    <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Text="04-11-2015 20:20:00" />
+                                </StackPanel>
+                                <StackPanel Width="50">
+                                    <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Text="❌" Foreground="#FFD34242"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabAction" Header="Waiting list" >
@@ -32,27 +70,67 @@
                                 <Label Content="Antal anmeld" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </StackPanel>
                         </StackPanel>
+                        <!--
                         <Border BorderBrush="Black" BorderThickness="0,0,0,1">
                             <StackPanel Height="20" Orientation="Horizontal" MouseEnter="list_Hovering" MouseLeave="list_Leaving">
                                 <StackPanel Width="250">
-                                    <TextBlock Padding="15,0,0,0" HorizontalAlignment="Left" Text="Admin Adminstrator" Cursor="Hand"/>
+                                    <TextBlock Uid="0" Padding="15,0,0,0" HorizontalAlignment="Left" Text="Admin Adminstrator" Cursor="Hand" PreviewMouseDown="Employee_Click"/>
                                 </StackPanel>
                                 <StackPanel Width="130">
-                                    <TextBlock HorizontalAlignment="Center" Text="30-11-2015 10:00:00" />
+                                    <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Text="-" />
                                 </StackPanel>
                                 <StackPanel Width="90">
                                     <TextBlock Text="1" TextAlignment="Right" Padding="0,0,10,0" />
                                 </StackPanel>
                             </StackPanel>
                         </Border>
+                        -->
                     </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabReview" Header="Reviews">
                 <Grid>
-                    
-                    <Button x:Name="button" Content="Show comment" HorizontalAlignment="Left" Margin="52,36,0,0" VerticalAlignment="Top" Click="button_Click" />
-
+                    <!--<Button x:Name="button" Content="Show comment" HorizontalAlignment="Left" Margin="52,36,0,0" VerticalAlignment="Top" Click="button_Click" />-->
+                    <StackPanel x:Name="panelReview" Margin="0,10,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Vertical">
+                        <!--
+                        <StackPanel Height="30" Margin="0,10,0,0" Orientation="Horizontal">
+                            <StackPanel Width="250">
+                                <Label Content="Medarbejder" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Width="130">
+                                <Label Content="Seneste anmeld" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Width="90">
+                                <Label Content="Antal anmeld" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        -->
+                        <Border BorderBrush="#FF9B9B9B" BorderThickness="0,0,0,1">
+                            <StackPanel Orientation="Vertical" Background="AliceBlue">
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Width="320">
+                                        <TextBlock Uid="0" Padding="15,0,0,0" Foreground="#FF4CABFF" HorizontalAlignment="Left" Text="Admin Adminstrator" Cursor="Hand" PreviewMouseDown="Employee_Click"/>
+                                    </StackPanel>
+                                    <StackPanel Width="150">
+                                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Text="2015-11-04 21:30:32" Foreground="#FF64AE78" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel MinHeight="20">
+                                    <TextBlock Padding="15,10" Text="Hello world" TextWrapping="WrapWithOverflow" />
+                                </StackPanel>
+                                <StackPanel Height="25" Orientation="Horizontal" Margin="0,0,0,5">
+                                    <StackPanel Width="235" Orientation="Horizontal">
+                                        
+                                    </StackPanel>
+                                    <StackPanel Width="215" Orientation="Horizontal" Margin="0,0,15,0">
+                                        <TextBlock Text="★" FontSize="20" VerticalAlignment="Center" Margin="110,0,10,0" />
+                                        <Button x:Name="buttonViewComment" Content="Kommentar" Height="20" Padding="5,0" Click="buttonViewComment_Click" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                        </Border>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabProfile" Header="Profile">

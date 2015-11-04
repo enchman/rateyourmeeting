@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RateYourMeeting"
         mc:Ignorable="d"
-        Title="Comment list" Height="500" Width="500">
+        Title="Comment list" MinHeight="400" Height="500" Width="500" MaxWidth="500" KeyDown="Window_KeyDown">
     <Grid>
         <StackPanel x:Name="panelComment" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch">
             <StackPanel MinHeight="20" Orientation="Horizontal">
@@ -14,7 +14,7 @@
                 </StackPanel>
                 <StackPanel Width="352" Orientation="Horizontal">
                     <Label Content="Kommentar" />
-                    <Button Padding="5,0" Height="20" Margin="175,0,0,0" HorizontalAlignment="Right" Content="Skriv kommentar" Background="White"></Button>
+                    <Button x:Name="buttonWriteComment" Padding="5,0" Height="20" Margin="165,0,0,0" HorizontalAlignment="Right" Content="Skriv kommentar" Background="White" Click="buttonWriteComment_Click"></Button>
                 </StackPanel>
             </StackPanel>
             <!--

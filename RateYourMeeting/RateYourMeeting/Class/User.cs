@@ -23,6 +23,7 @@ namespace RateYourMeeting
         // This use for numbers of reviews
         public int Total;
 
+        #region Constructors
         public string Fullname
         {
             get
@@ -42,7 +43,8 @@ namespace RateYourMeeting
         {
             get
             {
-                if(DataTime != null)
+                DateTime zero = new DateTime(1, 1, 1);
+                if (zero != DataTime)
                 {
                     return DataTime.ToString("dd-MM-yyyy HH:mm:ss");
                 }
@@ -139,21 +141,22 @@ namespace RateYourMeeting
                 }
             }
         }
+        #endregion
 
         #region Public Utility
         public static List<User> GetEmployees()
         {
             Database DB = new Database("CALL `getEmployees`()");
-            Dictionary<string, object>[] data = DB.FetchAll();
+            List<Dictionary<string, object>> data = DB.FetchAll();
             List<User> items = new List<User>() { };
-            for(int i = 0; i < data.Length; i++)
+            for(int i = 0; i < data.Count; i++)
             {
                 User profile = new User();
                 profile.Id = Convert.ToInt32(data[i]["id"]);
                 profile.Firstname = data[i]["firstname"].ToString();
                 profile.Lastname = data[i]["lastname"].ToString();
                 profile.Total = Convert.ToInt32(data[i]["total"]);
-                if(data[i]["wrotedate"] != null)
+                if(data[i]["wrotedate"] != DBNull.Value)
                 {
                     profile.DataTime = Convert.ToDateTime(data[i]["wrotedate"]);
                 }
@@ -176,7 +179,6 @@ namespace RateYourMeeting
                 Database DB = new Database("CALL `getUser`(@username)", param);
 
                 Dictionary<string, object> result = DB.Fetch();
-                DB.Done();
 
                 if(result.Count != 0 && ComparePassword(password, result["password"].ToString()))
                 {
@@ -216,7 +218,6 @@ namespace RateYourMeeting
 
                     Database DB = new Database("CALL `addEmployee`(@username, @password, @firstname, @lastname)", param);
                     bool result = DB.Success;
-                    DB.Done();
                     return result;
                 }
                 else
@@ -229,7 +230,6 @@ namespace RateYourMeeting
 
                     Database DB = new Database("CALL `addCustomer`(@username, @password, @firstname, @lastname)", param);
                     bool result = DB.Success;
-                    DB.Done();
                     return result;
                 }
             }

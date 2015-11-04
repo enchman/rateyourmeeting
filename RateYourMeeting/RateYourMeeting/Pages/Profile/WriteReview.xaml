@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RateYourMeeting"
         mc:Ignorable="d"
-        Title="Skriv anmeldelse" Height="400" Width="400">
+        Title="Skriv anmeldelse" Height="400" Width="400" ResizeMode="NoResize" KeyDown="Window_KeyDown">
     <Grid>
-        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="250" Margin="10,40,0,0" VerticalAlignment="Top" Width="372">
+        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="250" Margin="10,40,0,0" Focusable="True" VerticalAlignment="Top" Width="372">
             <FlowDocument>
                 <Paragraph>
                 </Paragraph>
@@ -15,7 +15,7 @@
         </RichTextBox>
         <Label x:Name="label" Content="Anmeldelse af Admin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonReview" Content="Send" HorizontalAlignment="Left" Margin="114,301,0,0" VerticalAlignment="Top" Width="75" Background="White" Foreground="#FF0CB623" BorderBrush="#FF44DC4B"/>
-        <Button x:Name="buttonCancel" Content="Cancel" HorizontalAlignment="Left" Margin="194,301,0,0" VerticalAlignment="Top" Width="75" Foreground="#FF5F5F5F" Background="White"/>
+        <Button x:Name="buttonCancel" Content="Cancel" HorizontalAlignment="Left" Margin="194,301,0,0" VerticalAlignment="Top" Width="75" Foreground="#FF5F5F5F" Background="White" Click="buttonCancel_Click"/>
 
     </Grid>
 </Window>

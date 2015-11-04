@@ -101,5 +101,19 @@ namespace RateYourMeeting
             // Comment list
             panelComment.Children.Add(bord);
         }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Escape)
+            {
+                this.Close();
+            }
+        }
+
+        private void buttonWriteComment_Click(object sender, RoutedEventArgs e)
+        {
+            WriteComment page = new WriteComment();
+            page.Show();
+        }
     }
 }

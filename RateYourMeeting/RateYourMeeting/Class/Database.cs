@@ -13,6 +13,7 @@ namespace RateYourMeeting
         private MySqlDataReader Data;
         public int Rows = 0;
 
+
         public Database(string query)
         {
             Connect();
@@ -44,80 +45,6 @@ namespace RateYourMeeting
         public bool Success{ get; set; }
 
         /// <summary>
-        /// Fetch 2d object array
-        /// Index ONLY
-        /// </summary>
-        /// <returns>2d object array of SQL result</returns>
-        public object[][] FetchNumbers()
-        {
-            object[][] items = new object[][] { };
-            for(int i = 0; Data.Read(); i++)
-            {
-                Data.GetValues(items[i]);
-            }
-            Data.Close();
-            return items;
-        }
-
-        /// <summary>
-        /// Fetch object array
-        /// Index ONLY
-        /// </summary>
-        /// <returns>object array of SQL result</returns>
-        public object[] FetchSingle()
-        {
-            object[] items = new object[] { };
-            if(Data.Read())
-            {
-                Data.GetValues(items);
-            }
-            Data.Close();
-            return items;
-        }
-
-        /// <summary>
-        /// Fetch all 
-        /// Combine index and associative array
-        /// </summary>
-        /// <returns>Multidimensional Dictionary array of SQL result</returns>
-        public Dictionary<string,object>[] FetchAll()
-        {
-            Dictionary<string, object>[] items = new Dictionary<string, object>[] { };
-            int n = 0;
-            while(Data.Read())
-            {
-                for(int i = 0; i < Data.FieldCount; i++)
-                {
-                    items[n].Add(Data.GetName(i), Data.GetValue(i));
-                }
-                n++;
-            }
-
-            Data.Close();
-            return items;
-        }
-
-        /// <summary>
-        /// Just Fetch 
-        /// Combine index and associative array
-        /// </summary>
-        /// <returns>Dictionary array of SQL result</returns>
-        public Dictionary<string, object> Fetch()
-        {
-            Dictionary<string, object> item = new Dictionary<string, object>();
-            if(Data.Read())
-            {
-                for (int i = 0; i < Data.FieldCount; i++)
-                {
-                    item.Add(Data.GetName(i), Data.GetValue(i));
-                }
-            }
-            Data.Close();
-
-            return item;
-        }
-
-        /// <summary>
         /// Database Connection
         /// Make connection from client to SQL server
         /// </summary>
@@ -141,7 +68,6 @@ namespace RateYourMeeting
                 com.CommandText = sql;
                 com.Prepare();
                 Data = com.ExecuteReader();
-                com.ExecuteNonQuery();
                 Success = true;
             }
             catch
@@ -176,6 +102,79 @@ namespace RateYourMeeting
             {
                 Success = false;
             }
+        }
+
+        /// <summary>
+        /// Fetch 2d object array
+        /// Index ONLY
+        /// </summary>
+        /// <returns>2d object array of SQL result</returns>
+        public object[][] FetchNumbers()
+        {
+            object[][] items = new object[][] { };
+            for(int i = 0; Data.Read(); i++)
+            {
+                Data.GetValues(items[i]);
+            }
+            Done();
+            return items;
+        }
+
+        /// <summary>
+        /// Fetch object array
+        /// Index ONLY
+        /// </summary>
+        /// <returns>object array of SQL result</returns>
+        public object[] FetchSingle()
+        {
+            object[] items = new object[] { };
+            if(Data.Read())
+            {
+                Data.GetValues(items);
+            }
+            Done();
+            return items;
+        }
+
+        /// <summary>
+        /// Fetch all 
+        /// Combine List and associative array
+        /// </summary>
+        /// <returns>Multidimensional Dictionary array of SQL result</returns>
+        public List<Dictionary<string, object>> FetchAll()
+        {
+            List<Dictionary<string, object>> items = new List<Dictionary<string, object>> { };
+            while (Data.Read())
+            {
+                Dictionary<string, object> item = new Dictionary<string, object>();
+                for (int i = 0; i < Data.FieldCount; i++)
+                {
+                    item.Add(Data.GetName(i), Data.GetValue(i));
+                }
+                items.Add(item);
+            }
+            Done();
+            return items;
+        }
+
+        /// <summary>
+        /// Just Fetch 
+        /// Combine index and associative array
+        /// </summary>
+        /// <returns>Dictionary array of SQL result</returns>
+        public Dictionary<string, object> Fetch()
+        {
+            Dictionary<string, object> item = new Dictionary<string, object>();
+            if(Data.Read())
+            {
+                for (int i = 0; i < Data.FieldCount; i++)
+                {
+                    item.Add(Data.GetName(i), Data.GetValue(i));
+                }
+            }
+            Done();
+
+            return item;
         }
 
         /// <summary>
