@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RateYourMeeting"
         mc:Ignorable="d"
-        Title="Rate Yuor Meeting" Height="500" Width="500" MinWidth="500" MaxWidth="500">
+        Title="Rate Your Meeting" Height="500" Width="500" MinWidth="500" MaxWidth="500">
     <Grid>
         
     </Grid>

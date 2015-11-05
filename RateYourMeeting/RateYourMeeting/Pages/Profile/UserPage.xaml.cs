@@ -20,6 +20,9 @@ namespace RateYourMeeting
     /// </summary>
     public partial class UserPage : UserControl
     {
+        public enum ReviewMode { Latest, ByEmployee}
+        
+
         public UserPage()
         {
             InitializeComponent();
@@ -181,12 +184,28 @@ namespace RateYourMeeting
                 page.Show();
             }
         }
-        #endregion
-
         private void buttonViewComment_Click(object sender, RoutedEventArgs e)
         {
             ViewComment page = new ViewComment();
             page.Show();
         }
+        private void UserControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Left || e.Key == Key.Right)
+            {
+
+            }
+        }
+        private void Star_Hover(object sender, MouseEventArgs e)
+        {
+            TextBlock star = sender as TextBlock;
+            star.Foreground = Brushes.Cyan;
+        }
+        private void Star_Leave(object sender, MouseEventArgs e)
+        {
+            TextBlock star = sender as TextBlock;
+            star.Foreground = Brushes.Gray;
+        }
+        #endregion
     }
 }

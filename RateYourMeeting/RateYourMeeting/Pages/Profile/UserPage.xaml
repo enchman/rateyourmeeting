@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RateYourMeeting"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="500">
+             d:DesignHeight="500" d:DesignWidth="500" KeyDown="UserControl_KeyDown">
     <Grid>
         <TabControl x:Name="tabControl" HorizontalAlignment="Center" Margin="0,10,0,10" VerticalAlignment="Stretch" Width="480">
             <TabItem x:Name="tabMeeting" Header="Meeting list" Selector.IsSelected="True">
@@ -123,7 +123,7 @@
                                         
                                     </StackPanel>
                                     <StackPanel Width="215" Orientation="Horizontal" Margin="0,0,15,0">
-                                        <TextBlock Text="★" FontSize="20" VerticalAlignment="Center" Margin="110,0,10,0" />
+                                        <TextBlock Text="★" FontSize="20" Foreground="Gray" VerticalAlignment="Center" Margin="110,0,10,0" MouseEnter="Star_Hover" MouseLeave="Star_Leave"/>
                                         <Button x:Name="buttonViewComment" Content="Kommentar" Height="20" Padding="5,0" Click="buttonViewComment_Click" />
                                     </StackPanel>
                                 </StackPanel>

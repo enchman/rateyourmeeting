@@ -22,11 +22,13 @@ namespace RateYourMeeting
         public WriteComment()
         {
             InitializeComponent();
+            boxComment.Focus();
         }
 
         public WriteComment(string uid)
         {
-
+            InitializeComponent();
+            boxComment.Focus();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -35,6 +37,11 @@ namespace RateYourMeeting
             {
                 this.Close();
             }
+        }
+
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
