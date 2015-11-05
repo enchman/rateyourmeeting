@@ -21,7 +21,7 @@ namespace RateYourMeeting
     public partial class UserPage : UserControl
     {
         public enum ReviewMode { Latest, ByEmployee}
-        
+        private ReviewMode ViewType = ReviewMode.Latest;
 
         public UserPage()
         {
@@ -29,6 +29,7 @@ namespace RateYourMeeting
             LoadItems();
             LoadProfile();
             GetEmployees();
+            GetArrangement();
         }
 
         private void GetEmployees()
@@ -40,6 +41,19 @@ namespace RateYourMeeting
                 foreach(User item in users)
                 {
                     GenerateEmployeeStackPanel(item);
+                }
+            }
+        }
+
+        private void GetArrangement()
+        {
+            List<User> user = User.GetQueues();
+
+            if (user.Count > 0)
+            {
+                for (int i = 0; i < user.Count; i++)
+                {
+                    GenerateQueue(user[i]);
                 }
             }
         }
@@ -97,11 +111,56 @@ namespace RateYourMeeting
             panelEmployee.Children.Add(bord);
         }
 
+        private void GenerateQueue(User user)
+        {
+            // Border
+            Border bord = new Border();
+            bord.BorderBrush = Brushes.Black;
+            bord.BorderThickness = new Thickness(0, 0, 0, 1);
+
+            // Border > Stackpanel
+            StackPanel panel = new StackPanel();
+            panel.Height = 20;
+            panel.Orientation = Orientation.Horizontal;
+            panel.MouseEnter += list_Hovering;
+            panel.MouseLeave += list_Leaving;
+
+            // Border > Stackpanel > Stackpanel
+            StackPanel p1 = new StackPanel();
+            p1.Width = 300;
+
+            // Border > Stackpanel > Stackpanel > TextBlock
+            TextBlock tb1 = new TextBlock();
+            tb1.Padding = new Thickness(15, 0, 0, 0);
+            tb1.HorizontalAlignment = HorizontalAlignment.Left;
+            tb1.Cursor = Cursors.Hand;
+            tb1.PreviewMouseDown += Employee_Click;
+            tb1.Text = user.Fullname;
+            tb1.Uid = user.Id.ToString();
+
+            // Border > Stackpanel > Stackpanel
+            StackPanel p2 = new StackPanel();
+            p2.Width = 170;
+
+            // Border > Stackpanel > Stackpanel > TextBlock
+            TextBlock tb2 = new TextBlock();
+            tb2.TextAlignment = TextAlignment.Right;
+            tb2.Padding = new Thickness(0, 0, 10, 0);
+            tb2.Text = user.Total.ToString();
+
+            // Assembly UI
+            p1.Children.Add(tb1);
+            p2.Children.Add(tb2);
+            panel.Children.Add(p1);
+            panel.Children.Add(p2);
+            bord.Child = panel;
+            panelAction.Children.Add(bord);
+        }
+
         private void GetMeetings()
         {
 
         }
-
 
         private void LoadEmployeeReviews()
         {
@@ -118,9 +177,6 @@ namespace RateYourMeeting
                 // Change UI
                 
             }
-            
-
-            
         }
 
         private void LoadMeeting()
@@ -191,9 +247,27 @@ namespace RateYourMeeting
         }
         private void UserControl_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Left || e.Key == Key.Right)
+            if (e.Key == Key.Left)
             {
-
+                if(0 == this.tabControl.SelectedIndex)
+                {
+                    this.tabControl.SelectedIndex = (tabControl.Items.Count - 1);
+                }
+                else
+                {
+                    this.tabControl.SelectedIndex--;
+                }
+            }
+            else if(e.Key == Key.Right)
+            {
+                if ((tabControl.Items.Count - 1) == this.tabControl.SelectedIndex)
+                {
+                    this.tabControl.SelectedIndex = 0;
+                }
+                else
+                {
+                    this.tabControl.SelectedIndex++;
+                }
             }
         }
         private void Star_Hover(object sender, MouseEventArgs e)
@@ -205,6 +279,21 @@ namespace RateYourMeeting
         {
             TextBlock star = sender as TextBlock;
             star.Foreground = Brushes.Gray;
+        }
+        private void ShowOwner_Hover(object sender, MouseEventArgs e)
+        {
+            TextBlock main = sender as TextBlock;
+            StackPanel panel = main.Parent as StackPanel;
+            TextBlock text = panel.Children[1] as TextBlock;
+            text.Visibility = Visibility.Visible;
+        }
+
+        private void ShowOwner_Leave(object sender, MouseEventArgs e)
+        {
+            TextBlock main = sender as TextBlock;
+            StackPanel panel = main.Parent as StackPanel;
+            TextBlock text = panel.Children[1] as TextBlock;
+            text.Visibility = Visibility.Collapsed;
         }
         #endregion
     }

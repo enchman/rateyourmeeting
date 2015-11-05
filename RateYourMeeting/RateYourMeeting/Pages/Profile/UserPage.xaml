@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RateYourMeeting"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="500" d:DesignWidth="500" KeyDown="UserControl_KeyDown">
     <Grid>
         <TabControl x:Name="tabControl" HorizontalAlignment="Center" Margin="0,10,0,10" VerticalAlignment="Stretch" Width="480">
@@ -53,7 +53,28 @@
             </TabItem>
             <TabItem x:Name="tabAction" Header="Waiting list" >
                 <Grid>
-
+                    <StackPanel x:Name="panelAction" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Vertical">
+                        <StackPanel Height="30" Margin="0,10,0,0" Orientation="Horizontal">
+                            <StackPanel Width="300">
+                                <Label Content="Medarbejder" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Width="170">
+                                <Label Content="Antal kø" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,0,0,0"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <!--
+                        <Border BorderBrush="Black" BorderThickness="0,0,0,1">
+                            <StackPanel Height="20" Orientation="Horizontal" MouseEnter="list_Hovering" MouseLeave="list_Leaving">
+                                <StackPanel Width="300">
+                                    <TextBlock Uid="0" Padding="15,0,0,0" HorizontalAlignment="Left" Text="Admin Adminstrator" Cursor="Hand" PreviewMouseDown="Employee_Click"/>
+                                </StackPanel>
+                                <StackPanel Width="170">
+                                    <TextBlock Text="0" TextAlignment="Right" Padding="0,0,10,0" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        -->
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabEmployee" Header="Employees">
@@ -109,7 +130,8 @@
                             <StackPanel Orientation="Vertical" Background="AliceBlue">
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel Width="320">
-                                        <TextBlock Uid="0" Padding="15,0,0,0" Foreground="#FF4CABFF" HorizontalAlignment="Left" Text="Admin Adminstrator" Cursor="Hand" PreviewMouseDown="Employee_Click"/>
+                                        <TextBlock Uid="0" Padding="15,0,0,0" Foreground="#FF4CABFF" HorizontalAlignment="Left" Text="Admin Adminstrator" Cursor="Hand" MouseEnter="ShowOwner_Hover" MouseLeave="ShowOwner_Leave" PreviewMouseDown="Employee_Click"/>
+                                        <TextBlock Uid="0" Padding="15,0,0,0" Foreground="#FF52BD57" HorizontalAlignment="Left" Text="Customer Buyer" Cursor="Hand" Visibility="Collapsed"/>
                                     </StackPanel>
                                     <StackPanel Width="150">
                                         <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Text="2015-11-04 21:30:32" Foreground="#FF64AE78" />

@@ -167,6 +167,23 @@ namespace RateYourMeeting
 
             return items;
         }
+        public static List<User> GetQueues()
+        {
+            Database DB = new Database("CALL `getEmployeeWait`()");
+            List<Dictionary<string, object>> data = DB.FetchAll();
+            List<User> items = new List<User>() { };
+            for(int i = 0; i < data.Count; i++)
+            {
+                User profile = new User();
+                profile.Id = Convert.ToInt32(data[i]["id"]);
+                profile.Firstname = data[i]["firstname"].ToString();
+                profile.Lastname = data[i]["lastname"].ToString();
+                profile.Total = Convert.ToInt32(data[i]["queue"]);
+                items.Add(profile);
+            }
+
+            return items;
+        }
         #endregion
 
         #region User action

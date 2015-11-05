@@ -10,48 +10,41 @@ namespace RateYourMeeting
     class Meeting
     {
 
+        public enum ReviewStatus { None, Wrote}
         public int Id;
-        public string Fullname;
+        public User Person;
         public DateTime MeetDate;
+        public ReviewStatus Status;
 
-        public void MeetingList(ref ListBox box)
+        public static List<Meeting> GetMeeting()
         {
-            //box.Items.Clear();
-            //Dictionary<string, object> param = new Dictionary<string, object>();
-            //param.Add("username", MainControl.Session.Id);
-
-            //Database DB = new Database("CALL `getCustomerMeeting`(@username)");
-            //Dictionary<string, object>[] data = DB.FetchAll();
-
-            //if(data.Length > 0)
-            //{
-            //    for(int i = 0; i < data.Length; i++)
-            //    {
-            //        data[i][""]
-            //        box.Items.Add();
-            //    }
-            //}
-
-            //for (int i = 0; i < games.Count; i++)
-            //{
-            //    Game data = games.ElementAt(i);
-            //    ListBoxItem item = new ListBoxItem();
-            //    item.Content = data.Name;
-            //    block.Items.Add(item);
-            //}
-        }
-
-        public void WaitingList(ref ListBox box)
-        {
-            // Checking Privilege
-            if(MainControl.Session.Type == User.Status.Employee)
+            Database DB;
+            if(MainControl.Session.Type == User.Status.Customer)
             {
-
+                DB = new Database("CALL `getCustomerMeeting`(@user)");
             }
             else
             {
-                throw new Exception("User doesn't have right to access this method");
+                DB = new Database("CALL `getEmployeeMeeting`(@user)");
             }
+
+            List<Dictionary<string, object>> data = DB.FetchAll();
+            List<Meeting> items = new List<Meeting> { };
+            if(data.Count != 0)
+            {
+                for(int i = 0; i < data.Count; i++)
+                {
+                    Meeting item = new Meeting();
+                    item.Id = Convert.ToInt32(data[i]["id"]);
+                    item.MeetDate = Convert.ToDateTime(data[i]["meetingdate"]);
+                    item.Status = data[i]["reviewstatus"].ToString() != "1" ? ReviewStatus.None : ReviewStatus.Wrote;
+                    item.Person.Firstname = data[i]["firstname"].ToString();
+                    item.Person.Lastname = data[i]["lastname"].ToString();
+                    items.Add(item);
+                }
+            }
+            return items;
         }
+
     }
 }
