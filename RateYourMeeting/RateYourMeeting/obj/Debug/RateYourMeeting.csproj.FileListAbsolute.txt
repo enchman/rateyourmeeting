@@ -55,3 +55,5 @@ C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\Rat
 C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\Pages\Profile\ViewComment.baml
 C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\Pages\Profile\WriteComment.baml
 C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\Pages\Profile\WriteReview.baml
+C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\Pages\Profile\Popup\AcceptPopup.g.cs
+C:\Users\Sam\Documents\GitHub\visual2015\eal\rateyourmeeting\RateYourMeeting\RateYourMeeting\obj\Debug\Pages\Profile\Popup\AcceptPopup.baml

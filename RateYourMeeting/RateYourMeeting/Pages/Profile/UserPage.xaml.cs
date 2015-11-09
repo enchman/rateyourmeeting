@@ -134,7 +134,7 @@ namespace RateYourMeeting
             tb1.Padding = new Thickness(15, 0, 0, 0);
             tb1.HorizontalAlignment = HorizontalAlignment.Left;
             tb1.Cursor = Cursors.Hand;
-            tb1.PreviewMouseDown += Employee_Click;
+            tb1.PreviewMouseDown += MeetingArrange_Click;
             tb1.Text = user.Fullname;
             tb1.Uid = user.Id.ToString();
 
@@ -229,6 +229,13 @@ namespace RateYourMeeting
         {
             TextBlock text = sender as TextBlock;
             
+        }
+
+        private void MeetingArrange_Click(object sender, MouseButtonEventArgs e)
+        {
+            TextBlock text = sender as TextBlock;
+            AcceptPopup page = new AcceptPopup(int.Parse(text.Uid));
+            page.Show();
         }
 
         private void MeetingReview_Click(object sender, MouseButtonEventArgs e)
